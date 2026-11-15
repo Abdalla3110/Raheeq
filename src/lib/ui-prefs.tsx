@@ -28,7 +28,7 @@ const THEME_KEY = "misk-theme";
 const LANG_KEY = "misk-lang";
 
 export function UIPrefsProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
   const [lang, setLang] = useState<Lang>("ar");
   const [isReady, setIsReady] = useState(false);
 
