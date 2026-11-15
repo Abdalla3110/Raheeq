@@ -75,7 +75,7 @@ export default function IntroScreen() {
               className="mb-8"
             >
               <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl text-[#FAF9F6] tracking-[0.3em]">
-                ✦ M I S K ✦
+                ✦ R A H E E Q ✦
               </h1>
               <p className="text-xs sm:text-sm text-[#C8A97E] tracking-[0.4em] mt-3 uppercase">
                 Haute Parfumerie • Paris

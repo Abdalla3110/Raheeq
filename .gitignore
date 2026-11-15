@@ -9,3 +9,18 @@ build/
 next-env.d.ts
 .DS_Store
 npm-debug.log*
+
+.vercel
+.env*
+
+# media originals (copies live in public/)
+*.jfif
+1239a479eee292483f560677b2b4ab2d_720w.mp4
+mixkit-*.mp4
+stock-footage-*.mp4
+stock-footage-*.webm
+
+# local/dev artifacts
+.freebuff/
+server.log
+.vercel
