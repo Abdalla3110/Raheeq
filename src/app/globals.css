@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ══════════════════════════════════════════════════════════
+   رحيق — لوحة l'élixir الفاخرة (Light + Dark)
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg-app: #faf9f6;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f5f2eb;
+  --border-subtle: #ebe5da;
+  --border-medium: #ddd7cc;
+  --text-primary: #1a1816;
+  --text-secondary: #595248;
+  --text-muted: #8c827a;
+  --gold: #c8a97e;
+  --gold-dark: #9e7438;
+  --gold-light: #e8dfd3;
+  --hero-bg: #171513;
+  color-scheme: light;
+}
+
+html.dark {
+  --bg-app: #0e0d0c;
+  --bg-surface: #171513;
+  --bg-surface-elevated: #221f1c;
+  --border-subtle: #2b2621;
+  --border-medium: #3d362f;
+  --text-primary: #faf8f5;
+  --text-secondary: #c4bcb1;
+  --text-muted: #8a8175;
+  --gold: #d4af37;
+  --gold-dark: #b88e4f;
+  --gold-light: #2d271d;
+  --hero-bg: #0e0d0c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  --color-ink: var(--text-primary);
+  --color-cream: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-surface-2: var(--bg-surface-elevated);
+  --color-line: var(--border-subtle);
+  --color-line-2: var(--border-medium);
+  --color-charcoal: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-hero: var(--hero-bg);
+  --font-cairo: var(--font-cairo), sans-serif;
+  --font-serif-ar: var(--font-amiri), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-cairo), system-ui, sans-serif;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* العناوين بخط فخم */
+h1, h2, h3, .font-display {
+  font-family: var(--font-amiri), Georgia, serif;
+  letter-spacing: normal;
+}
+
+/* أزرار/حقول — انتقال ناعم بين الثيمات */
+button, input, select, textarea {
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* شريط تمرير أنيق */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* إخفاء سكرول بار أفقي مع الحفاظ على التمرير */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* خط ذهبي فاصل */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
+}
+
+/* توهج فخم للكروت */
+.luxury-glow {
+  box-shadow: 0 4px 20px -2px rgba(200, 169, 126, 0.15);
+}
+.dark .luxury-glow {
+  box-shadow: 0 4px 24px -2px rgba(212, 175, 55, 0.12);
+}
+
+/* skeleton loading */
+@keyframes popIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface-elevated) 25%,
+    var(--bg-surface) 50%,
+    var(--bg-surface-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.25rem;
+}
+
+/* حالة النفاد */
+.out-of-stock {
+  filter: grayscale(0.9);
+  opacity: 0.7;
+}
